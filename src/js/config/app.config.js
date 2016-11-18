@@ -16,8 +16,8 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
     abstract: true,
     templateUrl: 'layout/app-view.html',
     resolve: {
-      auth: function(User){
-        console.log("about to verify in config");
+      auth: function(User){   
+      console.log("app");     
         return User.verifyAuth();
       }
     }

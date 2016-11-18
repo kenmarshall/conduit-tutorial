@@ -8,4 +8,13 @@ componentsModule.component('listErrors', ListErrors);
 import ShowAuthed from './show-authed.directive';
 componentsModule.directive('showAuthed', ShowAuthed);
 
+import FollowBtn from './buttons/follow-btn.component';
+componentsModule.component('followBtn', FollowBtn);
+
+import FavoriteBtn from './buttons/favorite-btn.component';
+componentsModule.component('favoriteBtn', FavoriteBtn);
+
+import ArticleMeta from './article-helpers/article-meta.component';
+componentsModule.component('articleMeta', ArticleMeta);
+
 export default componentsModule;

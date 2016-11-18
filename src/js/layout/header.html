@@ -34,11 +34,21 @@
     </li>
 
      <li class="nav-item">
-      <a class="nav-link" ui-sref="app.article" ui-sref-active="active">Article</a>
+      <a class="nav-link" ui-sref="app.editor" ui-sref-active="active"><i class="ion-compose"></i>&nbsp;New Article</a>
     </li>
 
-     <li class="nav-item">
-      <a class="nav-link" ui-sref="app.profile" ui-sref-active="active">My Profile</a>
+    <li class="nav-item">
+      <a class="nav-link" ui-sref-active="active" ui-sref="app.settings">
+        <i class="ion-gear-a"></i>&nbsp;Settings
+      </a>
+
+    </li>
+  
+    <li class="nav-item">
+      <a class="nav-link" ui-sref="app.profile({ username: $ctrl.currentUser.username })" ui-sref-active="active">
+        <img class="user-pic" ng-src="{{$ctrl.currentUser.image}}"/>
+        {{ $ctrl.currentUser.username }}
+      </a>
     </li>
       
     </ul>

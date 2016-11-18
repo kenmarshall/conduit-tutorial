@@ -12,6 +12,20 @@ export default class User {
 		this.current = null;
 	}
 
+	update(fields){
+		return this._$http({
+			url: this._AppConstants.api + '/user',
+			method: 'PUT',
+			data: { user: fields }
+		}).then(
+			(res) => {
+				this.current = res.data.user;
+				return res.data.user;
+			}
+		
+		);
+	}
+
 	attemptAuth(type, credentials){
 		let route = (type === 'login') ? '/login' : '';
 		return this._$http({
@@ -32,44 +46,34 @@ export default class User {
 	logout(){
 		this.current = null;
 		this._JWT.destroy();
-
 		this._$state.go(this._$state.$current, null, { reload: true });
 	}
 
-	verifyAuth(){
-		
+	verifyAuth(){		
 		let deferred = this._$q.defer();
 		
-		if(!this._JWT.get()){
-			console.log('verifyAuth');
-			deferred.resolve(false);
-			console.log('no token');
+		if(!this._JWT.get()){			
+			deferred.resolve(false);			
 			return deferred.promise;
 		}
-		console.log('sfafgad ---- verifyAuth');
-		if(this.current){
-			console.log('got user');
+		
+		if(this.current){			
 			deferred.resolve(true);
-		} else {
-			console.log('no user about to hit http');
+		} else {			
 			this._$http({
 				url: this._AppConstants.api + '/user', 
 				method: 'GET' 				
 			}).then(
-				(res) => {
-					console.log("got response", res);
+				(res) => {					
 					this.current = res.data.user;
 					deferred.resolve(true);
 				},
-				(err) => {
-					console.log("got error", err);
+				(err) => {					
 					this._JWT.destroy();
 					deferred.resolve(false);
 				}
 			);
-		}
-
-		console.log('done verifyAuth');
+		}		
 		return deferred.promise;
 	}
 

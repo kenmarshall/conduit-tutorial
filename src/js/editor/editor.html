@@ -1,0 +1,44 @@
+<div class="editor-page">
+	<div class="container page">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-xs-12">
+				
+			<list-errors errors="$ctrl.errors"></list-errors>
+
+			<form>
+				<fieldset ng-disabled="$ctrl.isSubmitting">
+					
+					<fieldset class="form-group">
+						<input type="text" placeholder="Article Title" ng-model="$ctrl.article.title" class="form-control form-control-lg">					
+					</fieldset>
+
+					<fieldset class="form-group">
+						<input type="text" class="form-control" placeholder="What's this article about?" ng-model="$ctrl.article.description">
+					</fieldset>
+
+					<fieldset class="form-group">
+						<textarea id="" cols="30" rows="8" class="form-control" ng-model="$ctrl.article.body" placeholder="Write your article (in markdown)"></textarea>
+					</fieldset>
+
+					<fieldset class="form-group">						
+						<input type="text" class="form-control" placeholder="Enter tags" ng-model="$ctrl.tagField" ng-keyup="$event.keyCode == 13 && $ctrl.addTag()">
+						
+						<div class="tag-list">
+							<span ng-repeat="tag in $ctrl.article.tagList" class="tag-default tag-pill">
+								<i class="ion-close-round" ng-click="$ctrl.removeTag(tag)"></i>
+								{{ tag }}
+							</span>	
+						</div>
+					</fieldset>
+
+					<button ng-click="$ctrl.submit()" class="btn btn-lg pull-xs-right btn-primary" type="button">
+						Publish Article
+					</button>
+
+				</fieldset>
+			</form>
+
+			</div>
+		</div>
+	</div>
+</div>

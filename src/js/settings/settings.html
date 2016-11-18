@@ -8,11 +8,11 @@
 				<form ng-submit="$ctrl.submitForm()">
 					<fieldset ng-disabled="$ctrl.isSubmitting">
 						<fieldset class="form-group">
-							<input type="text" class="form-control" placeholder="URL of profile picture" ng-model="$ctrl.formData.image">
+							<input type="text" class="form-control form-control-lg" placeholder="URL of profile picture" ng-model="$ctrl.formData.image">
 						</fieldset>
 
 						<fieldset class="form-group">
-							<input type="text" class="formcontrol" placeholder="Username" ng-model="$ctrl.formData.username"/>
+							<input type="text" class="form-control form-control-lg" placeholder="Username" ng-model="$ctrl.formData.username"/>
 						</fieldset>
 
 						<fieldset class="form-group">
@@ -20,7 +20,7 @@
 						</fieldset>
 
 						<fieldset class="form-group">
-							<input type="email" class="form-control form-control lg" placeholder="Email" ng-model="$ctrl.formData.email">
+							<input type="email" class="form-control form-control-lg" placeholder="Email" ng-model="$ctrl.formData.email">
 						</fieldset>
 
 						<fieldset class="form-group">
@@ -32,7 +32,7 @@
 				</form>
 
 				<hr />
-				<button class="btn btn-outline-danger">Or click here to logout</button>
+				<button class="btn btn-outline-danger" ng-click="$ctrl.logout()">Or click here to logout</button>
 			</div>
 		</div>
 	</div>
