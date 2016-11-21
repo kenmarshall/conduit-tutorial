@@ -66,5 +66,15 @@ export default class Articles {
 		});
 	}
 
+	query(config){
+		let request = {
+			url: this._Appconstants.api + '/articles' + ((config.type === 'feed') ? '/feed' : ''),
+			method: 'GET',
+			params: config.filters ? config.filters : null
+		}
+
+		return this._$http(request).then((res) => res.data);
+	}
+
 
 }

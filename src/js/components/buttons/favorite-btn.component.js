@@ -9,7 +9,7 @@ class FavoriteBtnCtrl {
 	submit(){
 		this.isSubmitting = true;
 
-		if (!this.User.current){
+		if (!this._User.current){
 			this._$state.go('app.register');
 			return;
 		}
@@ -40,7 +40,7 @@ let FavoriteBtn = {
 	},
 	transclude: true,
 	controller: FavoriteBtnCtrl,
-	templateUrl: 'compononents/buttons/favorite-btn.html'
+	templateUrl: 'components/buttons/favorite-btn.html'
 }
 
 export default FavoriteBtn;

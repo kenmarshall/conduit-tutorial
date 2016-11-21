@@ -15,6 +15,12 @@ servicesModule.service('Profile', ProfileService);
 import ArticleService from './article.service';
 servicesModule.service('Articles', ArticleService);
 
+import CommentsService from './comments.service';
+servicesModule.service('Comments', CommentsService);
+
+import TagsService from './tags.service';
+servicesModule.service('Tags', TagsService);
+
 
 export default servicesModule;
 
